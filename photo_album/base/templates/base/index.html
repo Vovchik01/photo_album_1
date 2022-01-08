@@ -11,6 +11,7 @@
     <style>
         .image-thumbnail {
             max-height: 200px;
+            object-fit: cover;
         }
 
     </style>
@@ -28,6 +29,9 @@
                                 <li class="list-group-item">An item</li>
                                 <li class="list-group-item">A second item</li>
                                 <li class="list-group-item">A third item</li>
+
+
+                                <a class="btn btn-dark btn-block btn-sm m-1" href="{% url 'add_photo' %}">Add Photo</a>
                               </ul>
                           </div>
               </div>
@@ -39,7 +43,7 @@
                               <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-outline-dark btn-sm m-1">Go somewhere</a>
+                                <a href="{% url 'view_photo' 5 %}" class="btn btn-outline-dark btn-sm m-1">Go somewhere</a>
                               </div>
                           </div>
                       </div>
