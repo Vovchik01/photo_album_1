@@ -25,11 +25,10 @@
                           Categories
                           </div>
                               <ul class="list-group list-group-flush">
-                                <li class="list-group-item">All</li>
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-
+                                  <li class="list-group-item">All</li>
+                                {% for category in categories %}
+                                  <li class="list-group-item">{{ category }}</li>
+                                {% endfor %}
 
                                 <a class="btn btn-dark btn-block btn-sm m-1" href="{% url 'add_photo' %}">Add Photo</a>
                               </ul>
@@ -37,100 +36,23 @@
               </div>
               <div class="col-md-9">
                   <div class="row">
-                      <div class="col-md-4">
-                          <div class="card my-2" >
-                              <img src="https://i.insider.com/5484d9d1eab8ea3017b17e29?width=600&format=jpeg&auto=webp" class="image-thumbnail" alt="...">
-                              <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="{% url 'view_photo' 5 %}" class="btn btn-outline-dark btn-sm m-1">Go somewhere</a>
+
+                      {% for photo in photos %}
+                            <div class="col-md-4">
+                              <div class="card my-2" >
+                                  <img src="{{ photo.image.url }}" class="image-thumbnail" alt="...">
+                                  <div class="card-body">
+                                    <h5 class="card-title">Category: {{ photo.category }}</h5>
+                                    <p class="card-text">{{ photo.description }}</p>
+                                    <a href="{% url 'view_photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1">Go for full size</a>
+                                  </div>
                               </div>
-                          </div>
-                      </div>
-                      <div class="col-md-4">
-                          <div class="card my-2" >
-                              <img src="https://i.insider.com/5484d9d1eab8ea3017b17e29?width=600&format=jpeg&auto=webp" class="image-thumbnail" alt="...">
-                              <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-outline-dark btn-sm m-1">Go somewhere</a>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-md-4">
-                          <div class="card my-2" >
-                              <img src="https://i.insider.com/5484d9d1eab8ea3017b17e29?width=600&format=jpeg&auto=webp" class="image-thumbnail" alt="...">
-                              <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-outline-dark btn-sm m-1">Go somewhere</a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-md-4">
-                          <div class="card my-2" >
-                              <img src="https://i.insider.com/5484d9d1eab8ea3017b17e29?width=600&format=jpeg&auto=webp" class="image-thumbnail" alt="...">
-                              <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-outline-dark btn-sm m-1">Go somewhere</a>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-md-4">
-                          <div class="card my-2" >
-                              <img src="https://i.insider.com/5484d9d1eab8ea3017b17e29?width=600&format=jpeg&auto=webp" class="image-thumbnail" alt="...">
-                              <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-outline-dark btn-sm m-1">Go somewhere</a>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-md-4">
-                          <div class="card my-2" >
-                              <img src="https://i.insider.com/5484d9d1eab8ea3017b17e29?width=600&format=jpeg&auto=webp" class="image-thumbnail" alt="...">
-                              <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-outline-dark btn-sm m-1">Go somewhere</a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-md-4">
-                          <div class="card my-2" >
-                              <img src="https://i.insider.com/5484d9d1eab8ea3017b17e29?width=600&format=jpeg&auto=webp" class="image-thumbnail" alt="...">
-                              <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-outline-dark btn-sm m-1">Go somewhere</a>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-md-4">
-                          <div class="card my-2" >
-                              <img src="https://i.insider.com/5484d9d1eab8ea3017b17e29?width=600&format=jpeg&auto=webp" class="image-thumbnail" alt="...">
-                              <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-outline-dark btn-sm m-1">Go somewhere</a>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-md-4">
-                          <div class="card my-2" >
-                              <img src="https://i.insider.com/5484d9d1eab8ea3017b17e29?width=600&format=jpeg&auto=webp" class="image-thumbnail" alt="...">
-                              <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-outline-dark btn-sm m-1">Go somewhere</a>
-                              </div>
-                          </div>
-                      </div>
+                            </div>
+                      {% empty %}
+                      <h3>
+                          There's no photos here!
+                      </h3>
+                      {% endfor %}
                   </div>
               </div>
           </div>
