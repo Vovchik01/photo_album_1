@@ -3,8 +3,14 @@ from .models import *
 
 
 def index(request):
+    category = request.GET.get('category')
+    if category is None:
+        photos = Photo.objects.all()
+    else:
+        photos = Photo.objects.filter(category__name=category)
+
     categories = Category.objects.all()
-    photos = Photo.objects.all()
+
     context = {'categories': categories, 'photos': photos}
     return render(request, 'base/index.html', context=context)
 
